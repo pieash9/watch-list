@@ -1,26 +1,27 @@
 import { useDispatch, useSelector } from "react-redux";
 import { WATCH_LIST } from "../interface/watchListInterface";
-import { MdOutlineRemoveCircleOutline } from "react-icons/md";
+import { MdDone, MdOutlineRemoveCircleOutline } from "react-icons/md";
 import {
-  addToWatching,
-  removeFromWantToWatch,
+  addToWatchList,
+  removeFromWatching,
 } from "../store/slice/watchlistSlice";
 import { RootState } from "../store/store";
 
-const WantToWatchCard = ({ movie }: { movie: WATCH_LIST }) => {
+const WatchingCard = ({ movie }: { movie: WATCH_LIST }) => {
   const dispatch = useDispatch();
-  const watchingList = useSelector(
-    (state: RootState) => state.movieWatchList.watching
+
+  const watchedList = useSelector(
+    (state: RootState) => state.movieWatchList.watchList
   );
 
   // checked whether movie is in watching list
-  const isInWantToWatchList = watchingList.some((m) => m.id === movie.id);
+  const isInWatchedList = watchedList.some((m) => m.id === movie.id);
 
-  const handleWatching = () => {
-    dispatch(removeFromWantToWatch(movie.id));
-    if (isInWantToWatchList === false) {
+  const handleWatched = () => {
+    dispatch(removeFromWatching(movie.id));
+    if (isInWatchedList === false) {
       dispatch(
-        addToWatching({
+        addToWatchList({
           added_date: new Date().toISOString(),
           air_date: movie?.air_date || "",
           image: movie.image,
@@ -58,14 +59,14 @@ const WantToWatchCard = ({ movie }: { movie: WATCH_LIST }) => {
         </div>
         <div className="flex items-center gap-1">
           <button
-            onClick={handleWatching}
+            onClick={handleWatched}
             className="btn btn-ghost btn-circle btn-sm"
-            title="Add to Watching"
+            title="Watched"
           >
-            👀
+            <MdDone size="20" />
           </button>
           <button
-            onClick={() => dispatch(removeFromWantToWatch(movie.id))}
+            onClick={() => dispatch(removeFromWatching(movie.id))}
             className="btn btn-ghost btn-circle btn-sm"
             title="Remove"
           >
@@ -78,4 +79,4 @@ const WantToWatchCard = ({ movie }: { movie: WATCH_LIST }) => {
   );
 };
 
-export default WantToWatchCard;
+export default WatchingCard;
