@@ -1,7 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
+import watchListSlice from "./slice/watchlistSlice";
 
 export const store = configureStore({
-  reducer: {},
+  reducer: {
+    movieWatchList: watchListSlice,
+  },
 });
 
 export type RootState = ReturnType<typeof store.getState>;
