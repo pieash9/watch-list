@@ -3,9 +3,9 @@ import { FaBookmark, FaRegBookmark } from "react-icons/fa6";
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../store/store";
 import {
-  addToBookMark,
+  addToWantToWatch,
   addToWatchList,
-  removeFromBookMark,
+  removeFromWantToWatch,
   removeFromWatchList,
 } from "../store/slice/watchlistSlice";
 
@@ -20,12 +20,14 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
   const watchList = useSelector(
     (state: RootState) => state.movieWatchList.watchList
   );
-  const bookMarkList = useSelector(
-    (state: RootState) => state.movieWatchList.bookMark
+  const wantToWatchList = useSelector(
+    (state: RootState) => state.movieWatchList.wantToWatch
   );
 
-  // checked whether movie is in bookmarked or not
-  const isBookMarked = bookMarkList.some((movie) => movie.id === episode.id);
+  // checked whether movie is in wantToWatchList or not
+  const isInWantToWatchList = wantToWatchList.some(
+    (movie) => movie.id === episode.id
+  );
 
   // checked whether movie is in watchList or not
   const isMovieInWatchList = watchList.some((movie) => movie.id === episode.id);
@@ -47,10 +49,10 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
     }
   };
 
-  const handleAddToBookMark = () => {
-    if (isBookMarked === false) {
+  const handleAddToWantToWatch = () => {
+    if (isInWantToWatchList === false) {
       dispatch(
-        addToBookMark({
+        addToWantToWatch({
           added_date: new Date().toISOString(),
           air_date: episode?.air_date || "",
           image: posterImage,
@@ -60,12 +62,12 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
         })
       );
     } else {
-      dispatch(removeFromBookMark(episode.id || ""));
+      dispatch(removeFromWantToWatch(episode.id || ""));
     }
   };
 
   return (
-    <div className="border rounded border-gray-300/80 p-2 hover:shadow-xl shadow-md duration-300 relative h-[28.5rem] overflow-hidden">
+    <div className="border rounded border-gray-300/80 p-2 hover:shadow-xl shadow-md duration-300 relative h-[28.5rem] ">
       <img
         src={posterImage}
         alt="poster image"
@@ -73,25 +75,30 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
       />
       <h3 className="text-xl font-semibold mt-2">{episode?.name}</h3>
       <p className="my-1">
-        Released: <span className="opacity-70">{episode?.air_date}</span>
+        Released: <span className="text-black/70">{episode?.air_date}</span>
       </p>
       <p>
-        Episode: <span className="opacity-70">{episode?.episode}</span>
+        Episode: <span className="text-black/70">{episode?.episode}</span>
       </p>
       <div className="absolute flex justify-between  bottom-2 left-2 right-2">
         <button
-          onClick={handleAddToBookMark}
+          data-tip={`${isInWantToWatchList ? "Remove" : "Add"}  Want To Watch`}
+          onClick={handleAddToWantToWatch}
           className={`btn btn-xs ${
-            isBookMarked ? "" : "!btn-outline"
-          } !font-semibold rounded-sm btn-neutral capitalize w-24`}
+            isInWantToWatchList ? "" : "!btn-outline"
+          } !font-semibold rounded-sm btn-neutral capitalize w-[7.5rem] tooltip tooltip-top`}
         >
-          BookMark {isBookMarked ? <FaBookmark /> : <FaRegBookmark />}
+          <div className="flex items-center gap-1">
+            <span>Want To Watch</span>
+            {isInWantToWatchList ? <FaBookmark /> : <FaRegBookmark />}
+          </div>
         </button>
         <button
+          data-tip={`${isMovieInWatchList ? "Remove" : "Add"}  Watch List`}
           onClick={handleAddToWatchList}
           className={`btn btn-xs  ${
             isMovieInWatchList ? "" : "!btn-outline"
-          } !font-semibold rounded-sm btn-neutral capitalize w-24 `}
+          } !font-semibold rounded-sm btn-neutral capitalize  w-[7.5rem] tooltip tooltip-top`}
         >
           Watchlist +
         </button>

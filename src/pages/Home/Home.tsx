@@ -35,14 +35,12 @@ const Home = () => {
   if (error) return <ErrorPage />;
 
   return (
-    <div className="my-5">
+    <div className="mt-5 mb-10">
       <div className="mb-5 flex justify-center items-baseline">
-        <h3 className="text-2xl font-semibold mr-2  border-l-4 border-yellow-400 pl-1 ">
-          Movies
-        </h3>
+        <h3 className="text-2xl font-bold mr-2   ">Movies</h3>
         <div className="border  border-gray-300 w-full"></div>
       </div>
-      <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-5">
         {data?.episodes?.results &&
           data?.episodes?.results
             .slice(0, 10)

@@ -4,14 +4,14 @@ import type { PayloadAction } from "@reduxjs/toolkit";
 
 export interface WatchListState {
   watchList: WATCH_LIST[];
-  bookMark: WATCH_LIST[];
+  wantToWatch: WATCH_LIST[];
   alreadyWatch: string[];
 }
 
 const initialState: WatchListState = {
   watchList: [],
   alreadyWatch: [],
-  bookMark: [],
+  wantToWatch: [],
 };
 
 export const watchListSlice = createSlice({
@@ -26,11 +26,11 @@ export const watchListSlice = createSlice({
         (movie) => movie.id !== action.payload
       );
     },
-    addToBookMark: (state, action: PayloadAction<WATCH_LIST>) => {
-      state.bookMark = [...state.bookMark, action.payload];
+    addToWantToWatch: (state, action: PayloadAction<WATCH_LIST>) => {
+      state.wantToWatch = [...state.wantToWatch, action.payload];
     },
-    removeFromBookMark: (state, action: PayloadAction<string>) => {
-      state.bookMark = state.bookMark.filter(
+    removeFromWantToWatch: (state, action: PayloadAction<string>) => {
+      state.wantToWatch = state.wantToWatch.filter(
         (movie) => movie.id !== action.payload
       );
     },
@@ -39,9 +39,9 @@ export const watchListSlice = createSlice({
 
 export const {
   addToWatchList,
-  addToBookMark,
+  addToWantToWatch,
   removeFromWatchList,
-  removeFromBookMark,
+  removeFromWantToWatch,
 } = watchListSlice.actions;
 
 export default watchListSlice.reducer;
