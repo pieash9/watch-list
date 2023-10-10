@@ -1,5 +1,5 @@
 import { useDispatch } from "react-redux";
-import { WATCH_LIST } from "../interface/watchListInterface";
+import { WATCH_LIST } from "../interface/Interfaces";
 import { MdOutlineRemoveCircleOutline } from "react-icons/md";
 import { removeFromWatchList } from "../store/slice/watchlistSlice";
 

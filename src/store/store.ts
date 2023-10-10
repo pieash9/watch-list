@@ -1,9 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import watchListSlice from "./slice/watchlistSlice";
+import themeSlice from "./slice/themeSlice";
 
 export const store = configureStore({
   reducer: {
     movieWatchList: watchListSlice,
+    theme: themeSlice,
   },
 });
 

@@ -1,4 +1,4 @@
-import { WATCH_LIST } from "../../interface/watchListInterface";
+import { WATCH_LIST } from "../../interface/Interfaces";
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 

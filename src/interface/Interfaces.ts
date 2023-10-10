@@ -6,3 +6,7 @@ export interface WATCH_LIST {
   added_date: string;
   id: string;
 }
+
+export interface themeState {
+  mode: "dark" | "light";
+}
