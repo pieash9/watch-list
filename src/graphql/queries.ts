@@ -8,10 +8,7 @@ export const GET_EPISODES = gql(`
                 name
                 air_date
                 episode
-            characters{
-            image
-            name
-            }
+                id          
         }
     }
 }
