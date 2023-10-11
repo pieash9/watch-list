@@ -81,10 +81,16 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
           />
           <h3 className="text-xl font-semibold mt-2">{episode?.name}</h3>
           <p className="my-1 ">
-            Released: <span className=" font-light">{episode?.air_date}</span>
+            Released:{" "}
+            <span className=" text-black/70 dark:text-white">
+              {episode?.air_date}
+            </span>
           </p>
           <p>
-            Episode: <span className=" font-light">{episode?.episode}</span>
+            Episode:{" "}
+            <span className=" text-black/70 dark:text-white">
+              {episode?.episode}
+            </span>
           </p>
         </div>
         <div className="absolute md:flex justify-between mt-4  bottom-2 right-2 left-2">

@@ -1,3 +1,6 @@
+interface Character {
+  name: string;
+}
 export interface WATCH_LIST {
   image?: string | undefined;
   name: string;
@@ -5,6 +8,7 @@ export interface WATCH_LIST {
   episode: string;
   added_date?: string;
   id: string;
+  characters?: Character[];
 }
 
 export interface themeState {

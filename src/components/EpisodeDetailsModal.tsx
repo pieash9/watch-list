@@ -108,28 +108,36 @@ const EpisodeDetailsModal = ({
                   <MdOutlineClose size={24} className="font-semibold" />
                 </div>
 
-                <div className="mt-5 dark:text-gray-700 md:flex gap-4 items-center">
-                  <div className="">
+                <div className="mt-5 dark:text-gray-700 md:flex gap-8 items-center w-full">
+                  <div className="md:w-1/2">
                     <img
                       src={image}
-                      className="h-96 rounded w-full md:w-fit"
+                      className="h-96 rounded w-full"
                       alt={episode.name}
                     />
                   </div>
-                  <div className="">
+                  <div className="md:w-1/2">
                     <h3 className="text-xl font-semibold mt-2">
                       {episode?.name}
                     </h3>
                     <p className="my-1 ">
                       Released:
-                      <span className=" font-light ml-1">
+                      <span className=" text-black/70 ml-1">
                         {episode?.air_date}
                       </span>
                     </p>
                     <p>
                       Episode:
-                      <span className=" font-light ml-1">
+                      <span className=" text-black/70 ml-1">
                         {episode?.episode}
+                      </span>
+                    </p>
+                    <p>
+                      Characters:
+                      <span className=" text-black/70 ml-1">
+                        {episode?.characters?.slice(0, 12).map((character) => (
+                          <span key={character.name}>{character.name}, </span>
+                        ))}
                       </span>
                     </p>
 
@@ -141,11 +149,17 @@ const EpisodeDetailsModal = ({
                         onClick={handleAddToWantToWatch}
                         className={`btn btn-sm ${
                           isInWantToWatchList
-                            ? "dark:bg-gray-500"
+                            ? "dark:text-white"
                             : "!btn-outline"
-                        } !font-semibold rounded-sm btn-neutral capitalize md:w-40 w-full dark:text-white tooltip tooltip-top mb-3 md:mb-0`}
+                        }  rounded-sm btn-neutral dark:text-black capitalize md:w-36 w-full tooltip tooltip-top mb-3 md:mb-0`}
                       >
-                        <p className="flex items-center gap-1 justify-center dark:text-white">
+                        <p
+                          className={`${
+                            isInWantToWatchList
+                              ? "dark:text-white"
+                              : "text-black "
+                          } flex items-center gap-1 justify-center `}
+                        >
                           <span>Want To Watch</span>
                           {isInWantToWatchList ? (
                             <FaBookmark />
@@ -160,10 +174,8 @@ const EpisodeDetailsModal = ({
                         }  Watch List`}
                         onClick={handleAddToWatchList}
                         className={`btn btn-sm  ${
-                          isMovieInWatchList
-                            ? "dark:bg-gray-500"
-                            : "btn-outline"
-                        } !font-semibold rounded-sm btn-neutral  capitalize dark:text-white md:w-40 w-full tooltip tooltip-top`}
+                          isMovieInWatchList ? "dark:text-white" : "btn-outline"
+                        }  rounded-sm btn-neutral dark:text-black capitalize md:w-36 w-full tooltip tooltip-top`}
                       >
                         Watched List +
                       </button>

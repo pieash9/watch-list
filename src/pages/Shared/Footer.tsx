@@ -4,7 +4,7 @@ const Footer = () => {
       <aside>
         <p className="text-white">
           Copyright © {new Date().getFullYear()} All right reserved to - Watch
-          List
+          Trek
         </p>
       </aside>
     </footer>

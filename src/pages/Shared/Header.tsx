@@ -16,7 +16,7 @@ const Header = () => {
       <div className="max-w-7xl mx-auto navbar">
         <div className="flex-1">
           <Link to="/" className=" normal-case text-2xl font-bold text-white">
-            Movies
+            Watch Trek
           </Link>
         </div>
         <div className="flex-none">

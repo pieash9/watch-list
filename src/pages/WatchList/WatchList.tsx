@@ -15,15 +15,15 @@ const WatchList = () => {
     (state: RootState) => state.movieWatchList.watching
   );
   return (
-    <div className="my-5">
+    <div>
       <div className="mb-5 flex justify-center items-baseline">
-        <h3 className="text-2xl font-bold mr-2  border-l-4 border-yellow-400 pl-1">
+        <h3 className="text-2xl font-bold mr-2 mt-5 border-l-4 border-yellow-400 pl-1">
           WatchList
         </h3>
         <div className="border-b-[1px]  border-gray-300 w-full"></div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4  md:grid-cols-3 min-h-[calc(100vh-190px)]">
+      <div className="grid grid-cols-1 gap-4  md:grid-cols-3 min-h-[calc(100vh-210px)] ">
         <div className="md:border-r-[1px]  border border-gray-300 rounded">
           <div className="">
             <h3 className="text-xl font-semibold p-5 pb-2">
