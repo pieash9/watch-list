@@ -44,7 +44,7 @@ const WatchList = () => {
         <div className="md:border-r-[1px] border border-gray-300 rounded">
           <div className="">
             <h3 className="text-xl font-semibold p-5 pb-2">
-              Watching ({watching.length})
+              Watching Now ({watching.length})
             </h3>
             <div className="border-t-[1px]  border-gray-300 mb-2"></div>
           </div>

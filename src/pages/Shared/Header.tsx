@@ -32,7 +32,7 @@ const Header = () => {
           </button>
           <Link
             to="/watch-list"
-            className="btn btn-sm rounded-sm dark:bg-gray-300 dark:text-white"
+            className="btn btn-sm rounded-sm dark:bg-gray-200 dark:text-black"
           >
             Watch List
           </Link>

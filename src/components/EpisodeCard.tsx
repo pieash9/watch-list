@@ -67,38 +67,38 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
   };
 
   return (
-    <div className="border rounded border-gray-300/80 p-2 hover:shadow-xl shadow-md duration-300 relative h-[28.5rem] ">
+    <div className="border rounded border-gray-300/80 p-2 hover:shadow-xl shadow-md duration-300 relative h-[28.5rem]">
       <img
         src={posterImage}
         alt="poster image"
         className="rounded h-72 w-full object-cover"
       />
       <h3 className="text-xl font-semibold mt-2">{episode?.name}</h3>
-      <p className="my-1">
-        Released: <span className="text-black/70">{episode?.air_date}</span>
+      <p className="my-1 ">
+        Released: <span className=" font-light">{episode?.air_date}</span>
       </p>
       <p>
-        Episode: <span className="text-black/70">{episode?.episode}</span>
+        Episode: <span className=" font-light">{episode?.episode}</span>
       </p>
-      <div className="absolute flex justify-between  bottom-2 left-2 right-2">
+      <div className="absolute flex justify-between  bottom-2 left-2 right-2 ">
         <button
           data-tip={`${isInWantToWatchList ? "Remove" : "Add"}  Want To Watch`}
           onClick={handleAddToWantToWatch}
           className={`btn btn-xs ${
-            isInWantToWatchList ? "" : "!btn-outline"
-          } !font-semibold rounded-sm btn-neutral capitalize w-[7.5rem] tooltip tooltip-top`}
+            isInWantToWatchList ? "dark:bg-gray-500" : "!btn-outline"
+          } !font-semibold rounded-sm btn-neutral capitalize w-[7.5rem] dark:text-white tooltip tooltip-top`}
         >
-          <div className="flex items-center gap-1">
+          <p className="flex items-center gap-1 dark:text-white">
             <span>Want To Watch</span>
             {isInWantToWatchList ? <FaBookmark /> : <FaRegBookmark />}
-          </div>
+          </p>
         </button>
         <button
           data-tip={`${isMovieInWatchList ? "Remove" : "Add"}  Watch List`}
           onClick={handleAddToWatchList}
           className={`btn btn-xs  ${
-            isMovieInWatchList ? "" : "!btn-outline"
-          } !font-semibold rounded-sm btn-neutral capitalize  w-[7.5rem] tooltip tooltip-top`}
+            isMovieInWatchList ? "dark:bg-gray-500" : "btn-outline"
+          } !font-semibold rounded-sm btn-neutral btn-dark-mode capitalize dark:text-white w-[7.5rem] tooltip tooltip-top`}
         >
           Watchlist +
         </button>

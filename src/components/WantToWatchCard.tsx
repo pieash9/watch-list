@@ -39,14 +39,14 @@ const WantToWatchCard = ({ movie }: { movie: WATCH_LIST }) => {
           <div className="">
             <h5 className="font-semibold">{movie.name}</h5>
             <p className="text-sm ">
-              Release: <span className="text-black/70"> {movie.air_date}</span>
+              Release: <span className=" font-light"> {movie.air_date}</span>
             </p>
             <p className="text-sm ">
-              Episode: <span className="text-black/70"> {movie.episode}</span>
+              Episode: <span className=" font-light"> {movie.episode}</span>
             </p>
             <p className="text-sm ">
               Added on:
-              <span className="text-black/70 ml-1">
+              <span className=" font-light ml-1">
                 {new Date(movie.added_date).toLocaleString("en-US", {
                   day: "2-digit",
                   month: "long",
