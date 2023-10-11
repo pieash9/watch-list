@@ -12,7 +12,7 @@ const Header = () => {
   document.querySelector("html")?.setAttribute("data-theme", initialTheme);
 
   return (
-    <div className=" bg-black shadow-xl ">
+    <div className=" bg-black shadow-xl sticky top-0 z-40">
       <div className="max-w-7xl mx-auto navbar">
         <div className="flex-1">
           <Link to="/" className=" normal-case text-2xl font-bold text-white">
