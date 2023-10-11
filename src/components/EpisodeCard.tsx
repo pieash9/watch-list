@@ -11,6 +11,7 @@ import {
 import { useState } from "react";
 import EpisodeDetailsModal from "./EpisodeDetailsModal";
 import { WATCH_LIST } from "../interface/Interfaces";
+import { BsFillBookmarkCheckFill } from "react-icons/bs";
 
 type PropsType = {
   episode: Episode;
@@ -74,11 +75,21 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
     <>
       <div className="border rounded border-gray-300/80 p-2 hover:shadow-xl shadow-md duration-300 relative h-[29rem] md:h-[28.5rem] dark:text-white">
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
-          <img
-            src={posterImage}
-            alt="poster image"
-            className="rounded h-72 w-full object-cover"
-          />
+          <div className="relative">
+            {isMovieInWatchList && (
+              <div className="absolute top-0 -left-2">
+                <BsFillBookmarkCheckFill
+                  className="text-yellow-500"
+                  size={60}
+                />
+              </div>
+            )}
+            <img
+              src={posterImage}
+              alt="poster image"
+              className="rounded h-72 w-full object-cover"
+            />
+          </div>
           <h3 className="text-xl font-semibold mt-2">{episode?.name}</h3>
           <p className="my-1 ">
             Released:{" "}

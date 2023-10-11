@@ -157,10 +157,12 @@ const EpisodeDetailsModal = ({
                           className={`${
                             isInWantToWatchList
                               ? "dark:text-white"
-                              : "text-black "
-                          } flex items-center gap-1 justify-center `}
+                              : "text-black  "
+                          } flex items-center gap-1 justify-center  hover:text-white`}
                         >
-                          <span>Want To Watch</span>
+                          <span className="hover:text-white  ">
+                            Want To Watch
+                          </span>
                           {isInWantToWatchList ? (
                             <FaBookmark />
                           ) : (
@@ -175,7 +177,7 @@ const EpisodeDetailsModal = ({
                         onClick={handleAddToWatchList}
                         className={`btn btn-sm  ${
                           isMovieInWatchList ? "dark:text-white" : "btn-outline"
-                        }  rounded-sm btn-neutral dark:text-black capitalize md:w-36 w-full tooltip tooltip-top`}
+                        }  rounded-sm btn-neutral dark:text-black capitalize md:w-36 w-full tooltip tooltip-top hover:dark:text-white`}
                       >
                         Watched List +
                       </button>
