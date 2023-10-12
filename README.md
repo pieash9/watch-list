@@ -2,6 +2,10 @@
 
 Watch Trek is a modern web application that allows users to discover and track their favorite movies and TV shows. With a sleek and intuitive interface, it provides an enjoyable experience for movie and TV show enthusiasts. This project is built using Vite, React, TypeScript, GraphQL, and Redux Toolkit.
 
+## Live Site
+
+Explore Watch Trek on the live site: [Live Site Link](https://watch-trek.netlify.app/)
+
 ## Features
 
 - **Want to Watch List:** Users can add movies or TV shows they want to watch to their personalized list.
@@ -10,9 +14,7 @@ Watch Trek is a modern web application that allows users to discover and track t
 
 - **Watching Now Status:** Users can set the "watching now" status for movies and TV shows they are currently watching.
 
-## Live Site
 
-Explore Watch Trek on the live site: [Live Site Link](https://watch-trek.netlify.app/)
 
 ## Getting Started
 
