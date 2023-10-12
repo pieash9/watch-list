@@ -4,7 +4,7 @@ Watch Trek is a modern web application that allows users to discover and track t
 
 ## Live Site
 
-Explore Watch Trek on the live site: [Live Site Link](https://watch-trek.netlify.app/){:target="_blank"}
+Explore Watch Trek on the live site: [Live Site Link](https://watch-trek.netlify.app/)
 
 ## Features
 
