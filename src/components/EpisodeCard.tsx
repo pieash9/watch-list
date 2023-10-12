@@ -77,7 +77,7 @@ const EpisodeCard = ({ episode, posterImage }: PropsType) => {
         <div onClick={() => setIsOpen(!isOpen)} className="cursor-pointer">
           <div className="relative">
             {isMovieInWatchList && (
-              <div className="absolute top-0 -left-2">
+              <div className="absolute top-0 -left-2" title="Already watched">
                 <BsFillBookmarkCheckFill
                   className="text-yellow-500"
                   size={60}
